@@ -13,7 +13,8 @@ body {
 .info-box {
     width:450px;
     height:400px;
-    margin:0 auto;
+    position:fixed;
+    top:0;
 }
 
 .info-box ul {
