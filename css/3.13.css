@@ -1,24 +1,68 @@
-let tabs = document.querySelectorAll('.info-box li a');
-let panels = document.querySelectorAll('.info-box article');
-
-for(let i=0;i<tabs.length;i++){
-    tab = tabs[i];
-    setTabHandler(tab,i);
+html {
+    font-family:sans-serif;
 }
 
-function setTabHandler(tab,tabPos) {
-    tab.onclick = function () {
-        for (let i = 0; i < tabs.length; i++) {
-            if(tabs[i].getAttribute('class')){
-                 tabs[i].removeAttribute('class');
-             }
-           /*tabs[i].className = ''*/
-        }
-        tab.setAttribute('class','active');
-        /*tab.className = 'active';*/
-        for (let i=0;i<panels.length;i++){
-            panels[i].className = '';
-        }
-        panels[tabPos].className = 'active-panel';
-    }
+body {
+    margin:0;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+.info-box {
+    width:450px;
+    height:400px;
+    margin:0 auto;
+}
+
+.info-box ul {
+    padding-left:0;
+    margin-top:0;
+}
+
+.info-box li {
+    float:left;
+    width:150px;
+    list-style-type:none;
+}
+
+.info-box li a {
+    display:inline-block;
+    text-align:center;
+    color:black;;
+    text-decoration:none;
+    width:100%;
+    background:red;
+    line-height:3;
+}
+
+.info-box li a:focus,.info-box li a:hover {
+    background-color: #a60000;
+    color:white;
+}
+
+.info-box li a.active {
+    background-color: #a60000;
+    color:white;
+}
+
+.info-box .panels {
+    height: 352px;
+    position:relative;
+    clear:both;
+}
+
+.info-box article {
+    position:absolute;
+    top:0;
+    left:0;
+    height:352px;
+    padding:10px;
+    color:white;
+    background-color: #a60000;
+}
+
+.info-box .active-panel {
+    z-index:1;
 }
